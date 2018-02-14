@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
   </head>
   <div class="container">
-    <app-player-select [minPlayers]="2" [maxPlayers]="4"></app-player-select>
-    <app-player-entry-list [numberOfPlayers]="2"></app-player-entry-list>
+    <app-player-select [minPlayers]="2" [maxPlayers]="4" (numberOfPlayersChanged)="updateNumberOfPlayers($event)"></app-player-select>
+    <app-player-entry-list [players]="players"></app-player-entry-list>
   </div>
 </html>

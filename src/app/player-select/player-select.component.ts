@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
@@ -9,9 +9,9 @@ import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 export class PlayerSelectComponent implements OnInit {
   @Input() minPlayers: number;
   @Input() maxPlayers: number;
-  @ViewChild('f') form: any;
-  playerOptions: number[] = [];
+  @Output() numberOfPlayersChanged = new EventEmitter<number>();
   numberOfPlayers: number;
+  playerOptions: number[] = [];
 
   constructor() { }
 
@@ -22,7 +22,7 @@ export class PlayerSelectComponent implements OnInit {
     }
   }
 
-  onSubmit() {
-    console.log(this.numberOfPlayers);
+  playersChanged() {
+    this.numberOfPlayersChanged.emit(this.numberOfPlayers);
   }
 }

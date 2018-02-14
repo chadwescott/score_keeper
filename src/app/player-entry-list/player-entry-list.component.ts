@@ -6,17 +6,11 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./player-entry-list.component.css']
 })
 export class PlayerEntryListComponent implements OnInit {
-  @Input() numberOfPlayers: number;
-  players: string[] = [];
+  @Input() players: string[] = [];
 
   constructor() { }
 
-  ngOnInit() {
-    for (let i = 0; i < this.numberOfPlayers; i++) {
-      this.players.push('');
-    }
-  }
+  ngOnInit() { }
 
-  onSubmit() {
-  }
+  onSubmit() { }
 }
