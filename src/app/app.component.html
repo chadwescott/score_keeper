@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css">
   </head>
   <div class="container">
-    <app-player-entry></app-player-entry>
+    <app-player-entry [hidden]="hidePlayerEntry" (playersEntered)="playersEntered($event)"></app-player-entry>
+    <app-scoreboard [hidden]="hideScoreboard" [players]="players"></app-scoreboard>
   </div>
 </html>

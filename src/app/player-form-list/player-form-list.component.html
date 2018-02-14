@@ -1,4 +1,4 @@
 <form novalidate #f="ngForm" (ngSubmit)="onSubmit()">
-  <app-player-form *ngFor="let p of players; let i = index" [playerNumber]="i + 1"></app-player-form>
+  <app-player-form *ngFor="let p of players; let i = index" [player]="p" [playerNumber]="i + 1"></app-player-form>
   <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Submit</button>
 </form>
