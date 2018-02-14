@@ -6,6 +6,6 @@
   </head>
   <div class="container">
     <app-player-select [minPlayers]="2" [maxPlayers]="4" (numberOfPlayersChanged)="updateNumberOfPlayers($event)"></app-player-select>
-    <app-player-entry-list [players]="players"></app-player-entry-list>
+    <app-player-form-list [players]="players"></app-player-form-list>
   </div>
 </html>

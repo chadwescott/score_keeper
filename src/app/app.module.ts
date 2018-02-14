@@ -5,16 +5,16 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { PlayerSelectComponent } from './player-select/player-select.component';
-import { PlayerEntryComponent } from './player-entry/player-entry.component';
-import { PlayerEntryListComponent } from './player-entry-list/player-entry-list.component';
+import { PlayerFormComponent } from './player-form/player-form.component';
+import { PlayerFormListComponent } from './player-form-list/player-form-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerSelectComponent,
-    PlayerEntryComponent,
-    PlayerEntryListComponent
+    PlayerFormComponent,
+    PlayerFormListComponent
   ],
   imports: [
     BrowserModule,
