@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { ReactiveFormsModule, FormsModule, FormControl, FormControlName } from '@angular/forms';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { FormsModule, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-player-select',
@@ -9,17 +9,20 @@ import { ReactiveFormsModule, FormsModule, FormControl, FormControlName } from '
 export class PlayerSelectComponent implements OnInit {
   @Input() minPlayers: number;
   @Input() maxPlayers: number;
+  @ViewChild('f') form: any;
   playerOptions: number[] = [];
   numberOfPlayers: number;
 
   constructor() { }
 
   ngOnInit() {
+    this.numberOfPlayers = this.minPlayers;
     for (let i = this.minPlayers; i <= this.maxPlayers; i++) {
       this.playerOptions.push(i);
     }
   }
 
   onSubmit() {
+    console.log(this.numberOfPlayers);
   }
 }
