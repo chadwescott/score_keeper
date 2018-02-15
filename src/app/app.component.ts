@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Player } from './models/player';
 
 @Component({
   selector: 'app-root',
@@ -7,28 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'Score Keeper';
-  numberOfPlayers = 2;
-  players: string[] = ['', ''];
 
-  updateNumberOfPlayers(numberOfPlayers: number) {
-    if (numberOfPlayers > this.numberOfPlayers) {
-      this.increaseNumberOfPlayers(numberOfPlayers);
-    }
-    if (numberOfPlayers < this.numberOfPlayers) {
-      this.decreaseNumberOfPlayers(numberOfPlayers);
-    }
-    this.numberOfPlayers = numberOfPlayers;
-  }
+  hidePlayerEntry = false;
+  hideScoreboard = true;
+  players: Player[];
 
-  private increaseNumberOfPlayers(numberOfPlayers: number) {
-    for (let i = this.numberOfPlayers; i < numberOfPlayers; i ++) {
-      this.players.push('');
-    }
-  }
-
-  private decreaseNumberOfPlayers(numberOfPlayers: number) {
-    for (let i = numberOfPlayers; i < this.numberOfPlayers; i ++) {
-      this.players.pop();
-    }
+  playersEntered(players: Player[]) {
+    this.players = players;
+    this.hidePlayerEntry = true;
+    this.hideScoreboard = false;
   }
 }

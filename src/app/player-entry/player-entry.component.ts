@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Player } from '../models/player';
 
 @Component({
   selector: 'app-player-entry',
@@ -6,8 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./player-entry.component.css']
 })
 export class PlayerEntryComponent implements OnInit {
+  @Output() playersEntered = new EventEmitter<Player[]>();
   numberOfPlayers = 2;
-  players: string[] = ['', ''];
+  players: Player[] = [new Player(''), new Player('')];
 
   constructor() { }
 
@@ -26,7 +28,7 @@ export class PlayerEntryComponent implements OnInit {
 
   private increaseNumberOfPlayers(numberOfPlayers: number) {
     for (let i = this.numberOfPlayers; i < numberOfPlayers; i ++) {
-      this.players.push('');
+      this.players.push(new Player(''));
     }
   }
 
@@ -34,5 +36,9 @@ export class PlayerEntryComponent implements OnInit {
     for (let i = numberOfPlayers; i < this.numberOfPlayers; i ++) {
       this.players.pop();
     }
+  }
+
+  playersSubmitted(players: Player[]) {
+    this.playersEntered.emit(players);
   }
 }
