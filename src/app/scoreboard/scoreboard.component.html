@@ -1,3 +1,18 @@
-<p>
-  scoreboard works!
-</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Score</th>
+      <th>&nbsp;</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let p of players">
+      <td>{{p.name}}</td>
+      <td>{{p.score}}</td>
+      <td>
+        <app-player-score-form [player]="p"></app-player-score-form>
+      </td>
+    </tr>
+  </tbody>
+</table>

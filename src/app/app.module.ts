@@ -9,6 +9,7 @@ import { PlayerFormComponent } from './player-form/player-form.component';
 import { PlayerFormListComponent } from './player-form-list/player-form-list.component';
 import { PlayerEntryComponent } from './player-entry/player-entry.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
+import { PlayerScoreFormComponent } from './player-score-form/player-score-form.component';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { ScoreboardComponent } from './scoreboard/scoreboard.component';
     PlayerFormComponent,
     PlayerFormListComponent,
     PlayerEntryComponent,
-    ScoreboardComponent
+    ScoreboardComponent,
+    PlayerScoreFormComponent
   ],
   imports: [
     BrowserModule,
