@@ -10,6 +10,7 @@ import { PlayerFormListComponent } from './player-form-list/player-form-list.com
 import { PlayerEntryComponent } from './player-entry/player-entry.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { PlayerScoreFormComponent } from './player-score-form/player-score-form.component';
+import { ScoreLogComponent } from './score-log/score-log.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { PlayerScoreFormComponent } from './player-score-form/player-score-form.
     PlayerFormListComponent,
     PlayerEntryComponent,
     ScoreboardComponent,
-    PlayerScoreFormComponent
+    PlayerScoreFormComponent,
+    ScoreLogComponent
   ],
   imports: [
     BrowserModule,

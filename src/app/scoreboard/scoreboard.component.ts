@@ -8,9 +8,14 @@ import { Player } from '../models/player';
 })
 export class ScoreboardComponent implements OnInit {
   @Input() players: Player[];
+  scoreLog: string[] = [];
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  logScore(event: string) {
+    this.scoreLog.splice(0, 0, event);
   }
 }

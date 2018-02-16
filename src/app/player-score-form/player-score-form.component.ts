@@ -9,7 +9,7 @@ import { Player } from '../models/player';
 })
 export class PlayerScoreFormComponent implements OnInit {
   @Input() player: Player;
-  @Output() scoreChange = new EventEmitter<string>();
+  @Output() scoreChanged = new EventEmitter<string>();
   points: number;
 
   constructor() { }
@@ -19,13 +19,13 @@ export class PlayerScoreFormComponent implements OnInit {
 
   addPoints() {
     this.player.score += Number(this.points);
-    this.scoreChange.emit(this.player.name + ' +' + this.points + ' = ' + this.player.score);
+    this.scoreChanged.emit(this.player.name + ' +' + this.points + ' = ' + this.player.score);
     this.points = null;
   }
 
   subtractPoints() {
     this.player.score -= Number(this.points);
-    this.scoreChange.emit(this.player.name + ' -' + this.points + ' = ' + this.player.score);
+    this.scoreChanged.emit(this.player.name + ' -' + this.points + ' = ' + this.player.score);
     this.points = null;
   }
 }

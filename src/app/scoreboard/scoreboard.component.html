@@ -11,8 +11,9 @@
       <td>{{p.name}}</td>
       <td>{{p.score}}</td>
       <td>
-        <app-player-score-form [player]="p"></app-player-score-form>
+        <app-player-score-form [player]="p" (scoreChanged)="logScore($event)"></app-player-score-form>
       </td>
     </tr>
   </tbody>
 </table>
+<app-score-log [entries]="scoreLog"></app-score-log>
