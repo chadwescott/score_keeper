@@ -9,9 +9,24 @@ import { Player } from './models/player';
 export class AppComponent {
   title = 'Score Keeper';
 
-  hidePlayerEntry = false;
-  hideScoreboard = true;
+  hidePlayerEntry: boolean;
+  hideScoreboard: boolean;
   players: Player[];
+
+  constructor() {
+    this.initialize();
+  }
+
+  initialize() {
+    this.hidePlayerEntry = false;
+    this.hideScoreboard = true;
+    this.players = [new Player(''), new Player('')];
+  }
+
+  reset() {
+    console.log('resetting');
+    this.initialize();
+  }
 
   playersEntered(players: Player[]) {
     this.players = players;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
 
 @Component({
@@ -8,8 +8,8 @@ import { Player } from '../models/player';
 })
 export class PlayerEntryComponent implements OnInit {
   @Output() playersEntered = new EventEmitter<Player[]>();
-  numberOfPlayers = 2;
-  players: Player[] = [new Player(''), new Player('')];
+  @Input() numberOfPlayers: number;
+  @Input() players: Player[];
 
   constructor() { }
 

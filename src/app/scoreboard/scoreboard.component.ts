@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
 
 @Component({
@@ -8,6 +8,7 @@ import { Player } from '../models/player';
 })
 export class ScoreboardComponent implements OnInit {
   @Input() players: Player[];
+  @Output() resetForm = new EventEmitter();
   scoreLog: string[] = [];
 
   constructor() { }
@@ -17,5 +18,10 @@ export class ScoreboardComponent implements OnInit {
 
   logScore(event: string) {
     this.scoreLog.splice(0, 0, event);
+  }
+
+  reset() {
+    this.resetForm.emit();
+    this.scoreLog = [];
   }
 }

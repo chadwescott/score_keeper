@@ -6,8 +6,8 @@
   </head>
   <body>
     <div class="container">
-      <app-player-entry [hidden]="hidePlayerEntry" (playersEntered)="playersEntered($event)"></app-player-entry>
-      <app-scoreboard [hidden]="hideScoreboard" [players]="players"></app-scoreboard>
+      <app-player-entry [hidden]="hidePlayerEntry" [players]="players" [numberOfPlayers]="2" (playersEntered)="playersEntered($event)"></app-player-entry>
+      <app-scoreboard [hidden]="hideScoreboard" [players]="players" (resetForm)="reset()"></app-scoreboard>
     </div>
   </body>
 </html>
