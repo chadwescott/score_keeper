@@ -1,2 +1,2 @@
-<app-player-select [minPlayers]="2" [maxPlayers]="4" (numberOfPlayersChanged)="updateNumberOfPlayers($event)"></app-player-select>
+<app-player-select [numberOfPlayers]="numberOfPlayers" [minPlayers]="2" [maxPlayers]="4" (numberOfPlayersChanged)="updateNumberOfPlayers($event)"></app-player-select>
 <app-player-form-list [players]="players" (playersEntered)="playersSubmitted($event)"></app-player-form-list>

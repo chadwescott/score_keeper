@@ -24,7 +24,6 @@ export class AppComponent {
   }
 
   reset() {
-    console.log('resetting');
     this.initialize();
   }
 

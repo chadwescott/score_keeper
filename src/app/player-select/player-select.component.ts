@@ -7,10 +7,10 @@ import { FormsModule, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./player-select.component.css']
 })
 export class PlayerSelectComponent implements OnInit {
+  @Input() numberOfPlayers: number;
   @Input() minPlayers: number;
   @Input() maxPlayers: number;
   @Output() numberOfPlayersChanged = new EventEmitter<number>();
-  numberOfPlayers: number;
   playerOptions: number[] = [];
 
   constructor() { }
