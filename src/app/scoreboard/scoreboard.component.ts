@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
+import { PlayerService } from '../player-service.service';
 
 @Component({
   selector: 'app-scoreboard',
@@ -7,14 +8,12 @@ import { Player } from '../models/player';
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit {
-  @Input() players: Player[];
   @Output() resetForm = new EventEmitter();
   scoreLog: string[] = [];
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
   logScore(event: string) {
     this.scoreLog.splice(0, 0, event);

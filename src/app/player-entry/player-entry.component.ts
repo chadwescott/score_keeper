@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
+import { PlayerService } from '../player-service.service';
 
 @Component({
   selector: 'app-player-entry',
@@ -7,38 +8,16 @@ import { Player } from '../models/player';
   styleUrls: ['./player-entry.component.css']
 })
 export class PlayerEntryComponent implements OnInit {
-  @Output() playersEntered = new EventEmitter<Player[]>();
-  @Input() numberOfPlayers: number;
-  @Input() players: Player[];
+  @Output() playersEntered = new EventEmitter();
+  playerService: PlayerService;
 
-  constructor() { }
+  constructor(playerService: PlayerService) {
+    this.playerService = playerService
+   }
 
-  ngOnInit() {
-  }
+  ngOnInit() { }
 
-  updateNumberOfPlayers(numberOfPlayers: number) {
-    if (numberOfPlayers > this.numberOfPlayers) {
-      this.increaseNumberOfPlayers(numberOfPlayers);
-    }
-    if (numberOfPlayers < this.numberOfPlayers) {
-      this.decreaseNumberOfPlayers(numberOfPlayers);
-    }
-    this.numberOfPlayers = numberOfPlayers;
-  }
-
-  private increaseNumberOfPlayers(numberOfPlayers: number) {
-    for (let i = this.numberOfPlayers; i < numberOfPlayers; i ++) {
-      this.players.push(new Player(''));
-    }
-  }
-
-  private decreaseNumberOfPlayers(numberOfPlayers: number) {
-    for (let i = numberOfPlayers; i < this.numberOfPlayers; i ++) {
-      this.players.pop();
-    }
-  }
-
-  playersSubmitted(players: Player[]) {
-    this.playersEntered.emit(players);
+  playersSubmitted() {
+    this.playersEntered.emit();
   }
 }

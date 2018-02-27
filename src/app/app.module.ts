@@ -11,6 +11,7 @@ import { PlayerEntryComponent } from './player-entry/player-entry.component';
 import { ScoreboardComponent } from './scoreboard/scoreboard.component';
 import { PlayerScoreFormComponent } from './player-score-form/player-score-form.component';
 import { ScoreLogComponent } from './score-log/score-log.component';
+import { PlayerService } from './player-service.service';
 
 
 @NgModule({
@@ -28,7 +29,7 @@ import { ScoreLogComponent } from './score-log/score-log.component';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

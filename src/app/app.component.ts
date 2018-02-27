@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Player } from './models/player';
+import { PlayerService } from './player-service.service';
 
 @Component({
   selector: 'app-root',
@@ -11,24 +12,22 @@ export class AppComponent {
 
   hidePlayerEntry: boolean;
   hideScoreboard: boolean;
-  players: Player[];
 
-  constructor() {
+  constructor(private playerService: PlayerService) {
     this.initialize();
   }
 
   initialize() {
     this.hidePlayerEntry = false;
     this.hideScoreboard = true;
-    this.players = [new Player(''), new Player('')];
+    this.playerService.initialize(2);
   }
 
   reset() {
     this.initialize();
   }
 
-  playersEntered(players: Player[]) {
-    this.players = players;
+  playersEntered() {
     this.hidePlayerEntry = true;
     this.hideScoreboard = false;
   }

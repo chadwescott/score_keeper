@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormsModule, FormGroup, FormControl } from '@angular/forms';
+import { PlayerService } from '../player-service.service';
 
 @Component({
   selector: 'app-player-select',
@@ -7,22 +8,21 @@ import { FormsModule, FormGroup, FormControl } from '@angular/forms';
   styleUrls: ['./player-select.component.css']
 })
 export class PlayerSelectComponent implements OnInit {
-  @Input() numberOfPlayers: number;
   @Input() minPlayers: number;
   @Input() maxPlayers: number;
-  @Output() numberOfPlayersChanged = new EventEmitter<number>();
+  numberOfPlayers: number;
   playerOptions: number[] = [];
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
   ngOnInit() {
-    this.numberOfPlayers = this.minPlayers;
+    this.numberOfPlayers = this.playerService.players.length;
     for (let i = this.minPlayers; i <= this.maxPlayers; i++) {
       this.playerOptions.push(i);
     }
   }
 
   playersChanged() {
-    this.numberOfPlayersChanged.emit(this.numberOfPlayers);
+    this.playerService.updateNumberOfPlayers(this.numberOfPlayers);
   }
 }

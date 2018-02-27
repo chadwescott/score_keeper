@@ -1,5 +1,6 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Player } from '../models/player';
+import { PlayerService } from '../player-service.service';
 
 @Component({
   selector: 'app-player-form-list',
@@ -7,16 +8,13 @@ import { Player } from '../models/player';
   styleUrls: ['./player-form-list.component.css']
 })
 export class PlayerFormListComponent implements OnInit {
-  @Input() players: Player[];
-  @Output() playersEntered = new EventEmitter<Player[]>();
+  @Output() playersEntered = new EventEmitter();
 
-  constructor() { }
+  constructor(private playerService: PlayerService) { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 
   onSubmit() {
-    this.playersEntered.emit(this.players);
+    this.playersEntered.emit();
   }
 }

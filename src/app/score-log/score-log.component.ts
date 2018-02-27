@@ -10,7 +10,5 @@ export class ScoreLogComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

@@ -2,7 +2,7 @@
   <div class="form-group">
     <label>Number of Players</label>
     <select class="form-control" name="numberOfPlayers" [(ngModel)]="numberOfPlayers" (change)="playersChanged()">
-      <option *ngFor="let p of playerOptions" [selected]="p === numberOfPlayers">
+      <option *ngFor="let p of playerOptions" [selected]="p === playerService.players.length">
         {{p}}
       </option>
     </select>
