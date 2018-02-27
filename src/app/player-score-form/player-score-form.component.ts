@@ -18,14 +18,22 @@ export class PlayerScoreFormComponent implements OnInit {
   }
 
   addPoints() {
+    if (isNaN(this.points))
+    {
+      this.points = null;
+      return;
+    }
+
+    var score = this.player.score;
     this.player.score += Number(this.points);
-    this.scoreChanged.emit(this.player.name + ' +' + this.points + ' = ' + this.player.score);
+    this.scoreChanged.emit(this.player.name + ': ' + score + ' + ' + this.points + ' = ' + this.player.score);
     this.points = null;
   }
 
   subtractPoints() {
+    var score = this.player.score;
     this.player.score -= Number(this.points);
-    this.scoreChanged.emit(this.player.name + ' -' + this.points + ' = ' + this.player.score);
+    this.scoreChanged.emit(this.player.name + ': ' + score + ' - ' + this.points + ' = ' + this.player.score);
     this.points = null;
   }
 }

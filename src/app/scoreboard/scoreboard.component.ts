@@ -1,6 +1,7 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Player } from '../models/player';
 import { PlayerService } from '../player-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-scoreboard',
@@ -8,19 +9,22 @@ import { PlayerService } from '../player-service.service';
   styleUrls: ['./scoreboard.component.css']
 })
 export class ScoreboardComponent implements OnInit {
-  @Output() resetForm = new EventEmitter();
   scoreLog: string[] = [];
 
-  constructor(private playerService: PlayerService) { }
+  constructor(private router: Router, private playerService: PlayerService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    if (!this.playerService.playersValid())
+      this.router.navigate(['']);
+   }
 
   logScore(event: string) {
     this.scoreLog.splice(0, 0, event);
   }
 
   reset() {
-    this.resetForm.emit();
     this.scoreLog = [];
+    this.playerService.initialize(2);
+    this.router.navigate(['']);
   }
 }

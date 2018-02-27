@@ -10,25 +10,11 @@ import { PlayerService } from './player-service.service';
 export class AppComponent {
   title = 'Score Keeper';
 
-  hidePlayerEntry: boolean;
-  hideScoreboard: boolean;
-
   constructor(private playerService: PlayerService) {
-    this.initialize();
-  }
-
-  initialize() {
-    this.hidePlayerEntry = false;
-    this.hideScoreboard = true;
-    this.playerService.initialize(2);
+    this.reset();
   }
 
   reset() {
-    this.initialize();
-  }
-
-  playersEntered() {
-    this.hidePlayerEntry = true;
-    this.hideScoreboard = false;
+    this.playerService.initialize(2);
   }
 }

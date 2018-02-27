@@ -15,6 +15,15 @@ export class PlayerService {
       this.players.push(new Player(''));
     }
   }
+
+  playersValid() {
+    var valid = true;
+    this.players.forEach(p => {
+      if (!(p.name))
+        valid = false;
+    });
+    return valid;
+  }
   
   updateNumberOfPlayers(numberOfPlayers: number) {
     if (numberOfPlayers >= this.players.length) {
